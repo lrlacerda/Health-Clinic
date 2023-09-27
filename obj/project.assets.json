@@ -3353,9 +3353,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic.csproj",
-      "projectName": "Health_Clinic",
-      "projectPath": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic.csproj",
+      "projectUniqueName": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic_API_Lucas.csproj",
+      "projectName": "Health_Clinic_API_Lucas",
+      "projectPath": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic_API_Lucas.csproj",
       "packagesPath": "C:\\Users\\32784630803\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\obj\\",
       "projectStyle": "PackageReference",
