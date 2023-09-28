@@ -20,14 +20,6 @@ namespace Health_Clinic.Domains
         [Column(TypeName = "VARCHAR(200)")]
         public string? Endereco { get; set; }
 
-        //[Column(TypeName = "VARCHAR(50)")]
-        //public string? Cidade { get; set; }
-
-        //[Column(TypeName = "VARCHAR(20)")]
-        //public string? Estado { get; set; }
-
-        //[Column(TypeName = "VARCHAR(10)")]
-        //public string? CEP { get; set; }
 
 
 

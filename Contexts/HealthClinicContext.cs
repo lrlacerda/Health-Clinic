@@ -19,7 +19,10 @@ namespace Health_Clinic.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=NOTE06-S15; DataBase=Health_Clinic_API_Lucas; User Id=sa; Password=Senai@134; TrustServerCertificate=True;");
+            //optionsBuilder.UseSqlServer("Server=NOTE06-S15; DataBase=Health_Clinic_API_Lucas; User Id=sa; Password=Senai@134; TrustServerCertificate=True;");
+            //base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.UseSqlServer("Server=LAPTOP-LUCAS\\SQLEXPRESS; DataBase=Health_Clinic_API_Lucas; User Id=sa; Password=Vidanova7836#; TrustServerCertificate=True;");
             base.OnConfiguring(optionsBuilder);
         }
     }

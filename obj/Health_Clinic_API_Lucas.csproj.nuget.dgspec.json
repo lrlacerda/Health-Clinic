@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic_API_Lucas.csproj": {}
+    "C:\\Users\\lribe\\OneDrive\\Área de Trabalho\\Health-Clinic\\Health_Clinic_API_Lucas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic_API_Lucas.csproj": {
+    "C:\\Users\\lribe\\OneDrive\\Área de Trabalho\\Health-Clinic\\Health_Clinic_API_Lucas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic_API_Lucas.csproj",
+        "projectUniqueName": "C:\\Users\\lribe\\OneDrive\\Área de Trabalho\\Health-Clinic\\Health_Clinic_API_Lucas.csproj",
         "projectName": "Health_Clinic_API_Lucas",
-        "projectPath": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\Health_Clinic_API_Lucas.csproj",
-        "packagesPath": "C:\\Users\\32784630803\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32784630803\\Desktop\\Health_Clinic\\obj\\",
+        "projectPath": "C:\\Users\\lribe\\OneDrive\\Área de Trabalho\\Health-Clinic\\Health_Clinic_API_Lucas.csproj",
+        "packagesPath": "C:\\Users\\lribe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lribe\\OneDrive\\Área de Trabalho\\Health-Clinic\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\32784630803\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lribe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -100,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
