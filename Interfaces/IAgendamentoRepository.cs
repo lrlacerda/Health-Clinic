@@ -2,11 +2,11 @@
 
 namespace Health_Clinic_API_Lucas.Interfaces
 {
-    public interface IAgendamentoRepository
+    public interface IAgendamentoRepository 
     {
         void Cadastrar(Agendamento agendamento);
         void Deletar(Guid id);
         List<Agendamento> Listar();
-        List<Agendamento> ListarAgendamentosPorUsuario(Guid idUsuario);
+        List<Agendamento> ListarAgendamentosPorPaciente(Guid idPaciente);
     }
 }

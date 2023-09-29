@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Health_Clinic_API_Lucas</name>
+    </assembly>
+    <members>
+        <member name="T:Health_Clinic_API_Lucas.Migrations.Health_Clinic_API_Lucas">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Migrations.Health_Clinic_API_Lucas.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Migrations.Health_Clinic_API_Lucas.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Migrations.Health_Clinic_API_Lucas.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
