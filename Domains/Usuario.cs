@@ -11,6 +11,10 @@ namespace Health_Clinic.Domains
         [Key]
         public Guid IdUsuario { get; set; } = Guid.NewGuid();
 
+        [Column(TypeName = "VARCHAR(100)")]
+        [Required(ErrorMessage = "Nome Obrigatória")]
+        public string? Nome { get; set; }
+
         [Column(TypeName = "VARCHAR(100)")] 
         [Required(ErrorMessage = "Email Obrigatório")]
         [EmailAddress(ErrorMessage = "Email inválido")]
@@ -20,12 +24,14 @@ namespace Health_Clinic.Domains
         [Required(ErrorMessage = "Senha Obrigatória")]
         public string? Senha { get; set; }
 
+
+
         [Required(ErrorMessage = "Informe o Tipo do Usuário")]
         public Guid IdTiposUsuario { get; set; }
 
         public DateTime? DataRegistro { get; set; }
 
         [ForeignKey(nameof(IdTiposUsuario))]
-        public virtual TiposUsuario? TiposUsuario { get; set; }
+        public TiposUsuario? TiposUsuario { get; set; }
     }
 }

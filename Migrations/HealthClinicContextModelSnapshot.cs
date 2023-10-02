@@ -340,6 +340,10 @@ namespace Health_Clinic_API_Lucas.Migrations
                     b.Property<Guid>("IdTiposUsuario")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(100)");
+
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");

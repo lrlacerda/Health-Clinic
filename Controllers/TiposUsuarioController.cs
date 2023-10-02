@@ -15,7 +15,7 @@ namespace Health_Clinic_API_Lucas.Controllers
 
         public TiposUsuarioController()
         {
-            _tiposUsuarioRepository = new TiposUsuarioRepository;
+            _tiposUsuarioRepository = new TiposUsuarioRepository();
         }
 
         [HttpGet]

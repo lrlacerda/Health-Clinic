@@ -9,13 +9,13 @@ namespace Health_Clinic_API_Lucas.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class UsuarioController : ControllerBase
+    public class PacienteController : ControllerBase
     {
-        private IUsuarioRepository _usuarioRepository;
+        private IPacienteRepository _pacienteRepository;
 
-        public UsuarioController()
+        public PacienteController()
         {
-            _usuarioRepository = new UsuarioRepository();
+            _pacienteRepository = new PacienteRepository();
         }
 
         [HttpGet]
@@ -23,8 +23,8 @@ namespace Health_Clinic_API_Lucas.Controllers
         {
             try
             {
-                var usuarios = _usuarioRepository.Listar();
-                return Ok(usuarios);
+                var pacientes = _pacienteRepository.Listar();
+                return Ok(pacientes);
             }
             catch (Exception e)
             {
@@ -37,13 +37,41 @@ namespace Health_Clinic_API_Lucas.Controllers
         {
             try
             {
-                var usuario = _usuarioRepository.BuscarPorId(id);
-                if (usuario == null)
+                var paciente = _pacienteRepository.BuscarPorId(id);
+                if (paciente == null)
                 {
                     return NotFound();
                 }
 
-                return Ok(usuario);
+                return Ok(paciente);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("PorNome/{nome}")]
+        public IActionResult GetByNome(string nome)
+        {
+            try
+            {
+                var pacientes = _pacienteRepository.BuscarPorNome(nome);
+                return Ok(pacientes);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("PorGenero/{idGenero}")]
+        public IActionResult ListarPorGenero(Guid idGenero)
+        {
+            try
+            {
+                var pacientes = _pacienteRepository.ListarPorGenero(idGenero);
+                return Ok(pacientes);
             }
             catch (Exception e)
             {
@@ -52,12 +80,12 @@ namespace Health_Clinic_API_Lucas.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Usuario usuario)
+        public IActionResult Post(Paciente paciente)
         {
             try
             {
-                _usuarioRepository.Cadastrar(usuario);
-                return StatusCode(201, usuario);
+                _pacienteRepository.Cadastrar(paciente);
+                return StatusCode(201, paciente);
             }
             catch (Exception e)
             {
@@ -66,12 +94,12 @@ namespace Health_Clinic_API_Lucas.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, Usuario usuario)
+        public IActionResult Put(Guid id, Paciente paciente)
         {
             try
             {
-                usuario.IdUsuario = id;
-                _usuarioRepository.Atualizar(usuario);
+                paciente.IdPaciente = id;
+                _pacienteRepository.Atualizar(paciente);
                 return NoContent();
             }
             catch (Exception e)
@@ -85,7 +113,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         {
             try
             {
-                _usuarioRepository.Deletar(id);
+                _pacienteRepository.Deletar(id);
                 return NoContent();
             }
             catch (Exception e)

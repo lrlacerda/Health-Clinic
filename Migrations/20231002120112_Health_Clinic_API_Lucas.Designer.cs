@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Health_Clinic_API_Lucas.Migrations
 {
     [DbContext(typeof(HealthClinicContext))]
-    [Migration("20230929105820_Health_Clinic_API_Lucas")]
+    [Migration("20231002120112_Health_Clinic_API_Lucas")]
     partial class Health_Clinic_API_Lucas
     {
         /// <inheritdoc />
@@ -342,6 +342,10 @@ namespace Health_Clinic_API_Lucas.Migrations
 
                     b.Property<Guid>("IdTiposUsuario")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<string>("Senha")
                         .IsRequired()

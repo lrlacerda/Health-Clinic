@@ -71,6 +71,7 @@ namespace Health_Clinic_API_Lucas.Migrations
                 columns: table => new
                 {
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Senha = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     IdTiposUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -227,13 +228,13 @@ namespace Health_Clinic_API_Lucas.Migrations
                         column: x => x.IdAgendamento,
                         principalTable: "Agendamento",
                         principalColumn: "IdAgendamento",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Consulta_Medico_IdMedico",
                         column: x => x.IdMedico,
                         principalTable: "Medico",
                         principalColumn: "IdMedico",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Consulta_Paciente_IdPaciente",
                         column: x => x.IdPaciente,
@@ -245,7 +246,7 @@ namespace Health_Clinic_API_Lucas.Migrations
                         column: x => x.IdProntuario,
                         principalTable: "Prontuario",
                         principalColumn: "IdProntuario",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
