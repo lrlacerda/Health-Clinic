@@ -164,3 +164,5 @@ C:\Users\lribe\OneDrive\Área de Trabalho\Health-Clinic\obj\Debug\net7.0\Health_
 C:\Users\lribe\OneDrive\Área de Trabalho\Health-Clinic\obj\Debug\net7.0\ref\Health_Clinic_API_Lucas.dll
 C:\Users\32784630803\Desktop\Health_Clinic\bin\Debug\net7.0\Health_Clinic_API_Lucas.xml
 C:\Users\32784630803\Desktop\Health_Clinic\obj\Debug\net7.0\Health_Clinic_API_Lucas.xml
+C:\Users\lribe\OneDrive\Área de Trabalho\Health-Clinic\bin\Debug\net7.0\Health_Clinic_API_Lucas.xml
+C:\Users\lribe\OneDrive\Área de Trabalho\Health-Clinic\obj\Debug\net7.0\Health_Clinic_API_Lucas.xml

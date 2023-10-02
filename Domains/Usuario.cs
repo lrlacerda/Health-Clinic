@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Health_Clinic.Domains
 {
@@ -22,6 +23,7 @@ namespace Health_Clinic.Domains
 
         [Column(TypeName = "VARCHAR(100)")] 
         [Required(ErrorMessage = "Senha Obrigatória")]
+        [JsonIgnore]
         public string? Senha { get; set; }
 
 

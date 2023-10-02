@@ -1,6 +1,7 @@
 ﻿using Health_Clinic.Contexts;
 using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Health_Clinic_API_Lucas.Repositories
 {
@@ -30,7 +31,26 @@ namespace Health_Clinic_API_Lucas.Repositories
 
         public List<Agendamento> Listar()
         {
-            return _clinicContext.Agendamentos.ToList();
+            return _clinicContext.Agendamentos
+        .Include(a => a.Medico)
+        .Include(a => a.Paciente)
+        .Select(a => new Agendamento
+        {
+            IdAgendamento = a.IdAgendamento,
+            DataHoraConsulta = a.DataHoraConsulta,
+            Paciente = new Paciente
+            {
+                Nome = a.Paciente!.Nome,
+                Genero = a.Paciente.Genero,
+            },
+            Medico = new Medico
+            {
+                Nome = a.Medico!.Nome,
+                CRM = a.Medico!.CRM,
+                Especialidade = a.Medico.Especialidade,
+            },
+        })
+        .ToList();
         }
 
         public List<Agendamento> ListarAgendamentosPorPaciente(Guid idPaciente)

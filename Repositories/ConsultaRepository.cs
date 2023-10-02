@@ -1,6 +1,7 @@
 ﻿using Health_Clinic.Contexts;
 using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Health_Clinic_API_Lucas.Repositories
 {
@@ -41,7 +42,9 @@ namespace Health_Clinic_API_Lucas.Repositories
 
         public List<Consulta> Listar()
         {
-            return _clinicContext.Consultas.ToList();
+            return _clinicContext.Consultas
+            .Include(c => c.Prontuario)
+            .ToList();
         }
 
         public List<Consulta> ListarConsultasPorMedico(Guid idMedico)

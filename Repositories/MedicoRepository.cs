@@ -1,6 +1,7 @@
 ﻿using Health_Clinic.Contexts;
 using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Health_Clinic_API_Lucas.Repositories
 {
@@ -26,7 +27,7 @@ namespace Health_Clinic_API_Lucas.Repositories
 
         public Medico BuscarPorId(Guid id)
         {
-            return _clinicContext.Medicos.Find(id);
+            return _clinicContext.Medicos.Find(id)!;
         }
 
         public void Cadastrar(Medico medico)
@@ -47,13 +48,66 @@ namespace Health_Clinic_API_Lucas.Repositories
 
         public List<Medico> Listar()
         {
-            return _clinicContext.Medicos.ToList();
+            //return _clinicContext.Medicos.ToList();
+            return _clinicContext.Medicos
+            .Include(m => m.Clinica)
+            .Include(m => m.Usuario)
+            .Include(m => m.Especialidade)
+            .Select(m => new Medico
+            {
+                IdMedico = m.IdMedico,
+                Nome = m.Nome,
+                CRM = m.CRM,
+                Telefone = m.Telefone,
+
+                Clinica = new Clinica
+                {
+                    TelefoneClinica = m.Clinica!.TelefoneClinica,
+                    NomeFantasia = m.Clinica.NomeFantasia,
+                    Endereco = m.Clinica.Endereco,
+                },
+                Usuario = new Usuario
+                {
+                    Email = m.Usuario!.Email,
+                    TiposUsuario = m.Usuario.TiposUsuario,
+                    DataRegistro = m.Usuario.DataRegistro,
+
+                },
+                Especialidade = new Especialidade
+                {
+                    NomeEspecialidade = m.Especialidade!.NomeEspecialidade
+
+                }
+            })
+         .ToList();
         }
 
         public List<Medico> ListarMedicosPorEspecialidade(Guid idEspecialidade)
         {
+
             return _clinicContext.Medicos
-                .Where(medico => medico.IdEspecialidade == idEspecialidade)
+           .Include(m => m.Clinica)
+           .Include(m => m.Usuario)
+           .Include(m => m.Especialidade)
+           .Select(m => new Medico
+           {
+               IdMedico = m.IdMedico,
+               Nome = m.Nome,
+               CRM = m.CRM,
+               Telefone = m.Telefone,
+
+               Clinica = new Clinica
+               {
+                   TelefoneClinica = m.Clinica!.TelefoneClinica,
+                   NomeFantasia = m.Clinica.NomeFantasia,
+                   Endereco = m.Clinica.Endereco,
+               },
+               Especialidade = new Especialidade
+               {
+                   NomeEspecialidade = m.Especialidade!.NomeEspecialidade
+
+               }
+           })
                 .ToList();
         }
     }

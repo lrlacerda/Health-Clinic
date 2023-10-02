@@ -66,12 +66,22 @@ namespace Health_Clinic_API_Lucas.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, Usuario usuario)
+        public IActionResult Put(Guid id, [FromBody] Usuario usuarioAtualizado)
         {
             try
             {
-                usuario.IdUsuario = id;
-                _usuarioRepository.Atualizar(usuario);
+                var usuarioExistente = _usuarioRepository.BuscarPorId(id);
+
+                if (usuarioExistente == null)
+                {
+                    return NotFound();
+                }
+
+                usuarioExistente.Nome = usuarioAtualizado.Nome;
+                usuarioExistente.Email = usuarioAtualizado.Email;
+
+                _usuarioRepository.Atualizar(usuarioExistente);
+
                 return NoContent();
             }
             catch (Exception e)

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Health_Clinic.Domains
 {
@@ -13,7 +14,8 @@ namespace Health_Clinic.Domains
         [Required(ErrorMessage = "Nome do Perfil Obrigatório")]
         public string? Nome { get; set; }
 
-        [Column(TypeName = "VARCHAR(100)")] 
+        [Column(TypeName = "VARCHAR(100)")]
+        [JsonIgnore]
         public string? Descricao { get; set; }
     }
 }

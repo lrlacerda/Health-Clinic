@@ -62,6 +62,7 @@ namespace Health_Clinic_API_Lucas.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+                
             }
         }
 

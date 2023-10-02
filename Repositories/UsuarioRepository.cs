@@ -1,6 +1,7 @@
 ﻿using Health_Clinic.Contexts;
 using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Health_Clinic_API_Lucas.Repositories
 {
@@ -20,12 +21,24 @@ namespace Health_Clinic_API_Lucas.Repositories
 
         public Usuario BuscarPorId(Guid id)
         {
-            return _clinicContext.Usuarios.Find(id);
+            return _clinicContext.Usuarios
+           .Include(u => u.TiposUsuario)
+           .FirstOrDefault(u => u.IdUsuario == id)!;
         }
 
         public void Cadastrar(Usuario usuario)
         {
+            var tiposUsuario = _clinicContext.TiposUsuarios.Find(usuario.IdTiposUsuario);
+
+            
+            if (tiposUsuario != null)
+            {
+               
+                usuario.TiposUsuario = tiposUsuario;
+            }
+
             _clinicContext.Usuarios.Add(usuario);
+
             _clinicContext.SaveChanges();
         }
 
@@ -41,7 +54,9 @@ namespace Health_Clinic_API_Lucas.Repositories
 
         public List<Usuario> Listar()
         {
-            return _clinicContext.Usuarios.ToList();
+            return _clinicContext.Usuarios
+            .Include(u => u.TiposUsuario)
+            .ToList();
         }
     }
 }
