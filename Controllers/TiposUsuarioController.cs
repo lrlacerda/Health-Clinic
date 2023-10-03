@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _tiposUsuarioRepository = new TiposUsuarioRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todos os tipos de usuário.
+        /// </summary>
+        /// <returns>Uma lista de objetos TiposUsuario.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um tipo de usuário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do tipo de usuário.</param>
+        /// <returns>O tipo de usuário encontrado ou NotFound se não existir.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo tipo de usuário.
+        /// </summary>
+        /// <param name="tiposUsuario">Os dados do tipo de usuário a ser cadastrado.</param>
+        /// <returns>O tipo de usuário cadastrado com status HTTP 201 (Created).</returns>
         [HttpPost]
         public IActionResult Post(TiposUsuario tiposUsuario)
         {
@@ -65,6 +79,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza um tipo de usuário existente.
+        /// </summary>
+        /// <param name="id">O ID do tipo de usuário a ser atualizado.</param>
+        /// <param name="tiposUsuario">Os novos dados do tipo de usuário.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, TiposUsuario tiposUsuario)
         {
@@ -80,6 +100,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Exclui um tipo de usuário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do tipo de usuário a ser excluído.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

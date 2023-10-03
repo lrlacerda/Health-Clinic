@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _generoRepository = new GeneroRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todos os gêneros.
+        /// </summary>
+        /// <returns>Uma lista de objetos Genero.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um gênero pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do gênero a ser obtido.</param>
+        /// <returns>O gênero encontrado.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo gênero.
+        /// </summary>
+        /// <param name="genero">O objeto Genero a ser cadastrado.</param>
+        /// <returns>O gênero cadastrado.</returns>
         [HttpPost]
         public IActionResult Post(Genero genero)
         {
@@ -65,6 +79,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza um gênero pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do gênero a ser atualizado.</param>
+        /// <param name="genero">O objeto Genero atualizado.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Genero genero)
         {
@@ -80,6 +100,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta um gênero pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do gênero a ser deletado.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -94,6 +119,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém uma lista de gêneros por nome.
+        /// </summary>
+        /// <param name="nome">O nome do gênero a ser buscado.</param>
+        /// <returns>Uma lista de gêneros encontrados.</returns>
         [HttpGet("PorNome/{nome}")]
         public IActionResult ListarGenerosPorNome(string nome)
         {
@@ -108,6 +138,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém uma lista de gêneros populares.
+        /// </summary>
+        /// <param name="quantidade">A quantidade de gêneros populares a serem obtidos.</param>
+        /// <returns>Uma lista de gêneros populares.</returns>
         [HttpGet("Populares/{quantidade}")]
         public IActionResult ListarGenerosPopulares(int quantidade)
         {

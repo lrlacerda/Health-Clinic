@@ -4,6 +4,480 @@
         <name>Health_Clinic_API_Lucas</name>
     </assembly>
     <members>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.AgendamentoController.Get">
+            <summary>
+            Obtém a lista de todos os agendamentos.
+            </summary>
+            <returns>Uma lista de objetos Agendamento.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.AgendamentoController.ListarAgendamentosPorPaciente(System.Guid)">
+            <summary>
+            Obtém a lista de agendamentos de um paciente específico.
+            </summary>
+            <param name="idPaciente">O ID do paciente.</param>
+            <returns>Uma lista de objetos Agendamento do paciente.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.AgendamentoController.Post(Health_Clinic.Domains.Agendamento)">
+            <summary>
+            Cadastra um novo agendamento.
+            </summary>
+            <param name="agendamento">O objeto Agendamento a ser cadastrado.</param>
+            <returns>O agendamento cadastrado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.AgendamentoController.Delete(System.Guid)">
+            <summary>
+            Deleta um agendamento pelo seu ID.
+            </summary>
+            <param name="id">O ID do agendamento a ser deletado.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ClinicaController.Get">
+            <summary>
+            Obtém a lista de todas as clínicas.
+            </summary>
+            <returns>Uma lista de objetos Clinica.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ClinicaController.GetById(System.Guid)">
+            <summary>
+            Obtém uma clínica pelo seu ID.
+            </summary>
+            <param name="id">O ID da clínica a ser obtida.</param>
+            <returns>A clínica encontrada.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ClinicaController.Post(Health_Clinic.Domains.Clinica)">
+            <summary>
+            Cadastra uma nova clínica.
+            </summary>
+            <param name="clinica">O objeto Clinica a ser cadastrado.</param>
+            <returns>A clínica cadastrada.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ClinicaController.Put(System.Guid,Health_Clinic.Domains.Clinica)">
+            <summary>
+            Atualiza uma clínica existente.
+            </summary>
+            <param name="id">O ID da clínica a ser atualizada.</param>
+            <param name="clinica">O objeto Clinica com as informações atualizadas.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ClinicaController.Delete(System.Guid)">
+            <summary>
+            Deleta uma clínica pelo seu ID.
+            </summary>
+            <param name="id">O ID da clínica a ser deletada.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ClinicaController.FiltrarPorCNPJ(System.String)">
+            <summary>
+            Filtra clínicas pelo CNPJ.
+            </summary>
+            <param name="cnpj">O CNPJ a ser usado como critério de filtro.</param>
+            <returns>Uma lista de clínicas que correspondem ao CNPJ fornecido.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ComentarioController.Get">
+            <summary>
+            Obtém a lista de todos os comentários.
+            </summary>
+            <returns>Uma lista de objetos Comentario.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ComentarioController.GetById(System.Guid)">
+            <summary>
+            Obtém um comentário pelo seu ID.
+            </summary>
+            <param name="id">O ID do comentário a ser obtido.</param>
+            <returns>O comentário encontrado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ComentarioController.Post(Health_Clinic.Domains.Comentario)">
+            <summary>
+            Cadastra um novo comentário.
+            </summary>
+            <param name="comentario">O objeto Comentario a ser cadastrado.</param>
+            <returns>O comentário cadastrado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ComentarioController.Delete(System.Guid)">
+            <summary>
+            Deleta um comentário pelo seu ID.
+            </summary>
+            <param name="id">O ID do comentário a ser deletado.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ComentarioController.ListarComentariosPorMedico(System.Guid)">
+            <summary>
+            Obtém a lista de comentários associados a um médico.
+            </summary>
+            <param name="idMedico">O ID do médico.</param>
+            <returns>Uma lista de comentários relacionados ao médico.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ComentarioController.ListarComentariosPorPaciente(System.Guid)">
+            <summary>
+            Obtém a lista de comentários associados a um paciente.
+            </summary>
+            <param name="idPaciente">O ID do paciente.</param>
+            <returns>Uma lista de comentários relacionados ao paciente.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ComentarioController.FiltrarPorAvaliacao(System.Int32)">
+            <summary>
+            Filtra comentários por avaliação.
+            </summary>
+            <param name="avaliacao">A avaliação a ser usada como critério de filtro.</param>
+            <returns>Uma lista de comentários que correspondem à avaliação fornecida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ConsultaController.Get">
+            <summary>
+            Obtém a lista de todas as consultas médicas.
+            </summary>
+            <returns>Uma lista de objetos Consulta.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ConsultaController.GetById(System.Guid)">
+            <summary>
+            Obtém uma consulta médica pelo seu ID.
+            </summary>
+            <param name="id">O ID da consulta médica a ser obtida.</param>
+            <returns>A consulta médica encontrada.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ConsultaController.Post(Health_Clinic.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova consulta médica.
+            </summary>
+            <param name="consulta">O objeto Consulta a ser cadastrado.</param>
+            <returns>A consulta médica cadastrada.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ConsultaController.Put(System.Guid,Health_Clinic.Domains.Consulta)">
+            <summary>
+            Atualiza uma consulta médica pelo seu ID.
+            </summary>
+            <param name="id">O ID da consulta médica a ser atualizada.</param>
+            <param name="consulta">O objeto Consulta atualizado.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ConsultaController.Delete(System.Guid)">
+            <summary>
+            Deleta uma consulta médica pelo seu ID.
+            </summary>
+            <param name="id">O ID da consulta médica a ser deletada.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ConsultaController.ListarConsultasPorMedico(System.Guid)">
+            <summary>
+            Obtém a lista de consultas médicas associadas a um médico.
+            </summary>
+            <param name="idMedico">O ID do médico.</param>
+            <returns>Uma lista de consultas médicas relacionadas ao médico.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ConsultaController.ListarConsultasPorPaciente(System.Guid)">
+            <summary>
+            Obtém a lista de consultas médicas associadas a um paciente.
+            </summary>
+            <param name="idPaciente">O ID do paciente.</param>
+            <returns>Uma lista de consultas médicas relacionadas ao paciente.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.EspecialidadeController.Get">
+            <summary>
+            Obtém a lista de todas as especialidades médicas.
+            </summary>
+            <returns>Uma lista de objetos Especialidade.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.EspecialidadeController.GetById(System.Guid)">
+            <summary>
+            Obtém uma especialidade médica pelo seu ID.
+            </summary>
+            <param name="id">O ID da especialidade médica a ser obtida.</param>
+            <returns>A especialidade médica encontrada.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.EspecialidadeController.Post(Health_Clinic.Domains.Especialidade)">
+            <summary>
+            Cadastra uma nova especialidade médica.
+            </summary>
+            <param name="especialidade">O objeto Especialidade a ser cadastrado.</param>
+            <returns>A especialidade médica cadastrada.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.EspecialidadeController.Put(System.Guid,Health_Clinic.Domains.Especialidade)">
+            <summary>
+            Atualiza uma especialidade médica pelo seu ID.
+            </summary>
+            <param name="id">O ID da especialidade médica a ser atualizada.</param>
+            <param name="especialidade">O objeto Especialidade atualizado.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.EspecialidadeController.Delete(System.Guid)">
+            <summary>
+            Deleta uma especialidade médica pelo seu ID.
+            </summary>
+            <param name="id">O ID da especialidade médica a ser deletada.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.GeneroController.Get">
+            <summary>
+            Obtém a lista de todos os gêneros.
+            </summary>
+            <returns>Uma lista de objetos Genero.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.GeneroController.GetById(System.Guid)">
+            <summary>
+            Obtém um gênero pelo seu ID.
+            </summary>
+            <param name="id">O ID do gênero a ser obtido.</param>
+            <returns>O gênero encontrado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.GeneroController.Post(Health_Clinic.Domains.Genero)">
+            <summary>
+            Cadastra um novo gênero.
+            </summary>
+            <param name="genero">O objeto Genero a ser cadastrado.</param>
+            <returns>O gênero cadastrado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.GeneroController.Put(System.Guid,Health_Clinic.Domains.Genero)">
+            <summary>
+            Atualiza um gênero pelo seu ID.
+            </summary>
+            <param name="id">O ID do gênero a ser atualizado.</param>
+            <param name="genero">O objeto Genero atualizado.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.GeneroController.Delete(System.Guid)">
+            <summary>
+            Deleta um gênero pelo seu ID.
+            </summary>
+            <param name="id">O ID do gênero a ser deletado.</param>
+            <returns>Nenhum conteúdo.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.GeneroController.ListarGenerosPorNome(System.String)">
+            <summary>
+            Obtém uma lista de gêneros por nome.
+            </summary>
+            <param name="nome">O nome do gênero a ser buscado.</param>
+            <returns>Uma lista de gêneros encontrados.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.GeneroController.ListarGenerosPopulares(System.Int32)">
+            <summary>
+            Obtém uma lista de gêneros populares.
+            </summary>
+            <param name="quantidade">A quantidade de gêneros populares a serem obtidos.</param>
+            <returns>Uma lista de gêneros populares.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.LoginController.Post(Health_Clinic_API_Lucas.ViewModels.LoginViewModel)">
+            <summary>
+            Realiza a autenticação de um usuário com base em seu email e senha.
+            </summary>
+            <param name="usuario">As credenciais de login do usuário.</param>
+            <returns>Um token de autenticação JWT se o login for bem-sucedido.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.MedicoController.Get">
+            <summary>
+            Obtém a lista de todos os médicos.
+            </summary>
+            <returns>Uma lista de objetos Médico.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.MedicoController.GetById(System.Guid)">
+            <summary>
+            Obtém um médico pelo seu ID.
+            </summary>
+            <param name="id">O ID do médico.</param>
+            <returns>O médico encontrado ou NotFound se não existir.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.MedicoController.GetByCRM(System.Int32)">
+            <summary>
+            Obtém um médico pelo seu CRM.
+            </summary>
+            <param name="crm">O número do CRM do médico.</param>
+            <returns>O médico encontrado ou NotFound se não existir.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.MedicoController.Post(Health_Clinic.Domains.Medico)">
+            <summary>
+            Cadastra um novo médico.
+            </summary>
+            <param name="medico">Os dados do médico a ser cadastrado.</param>
+            <returns>O médico cadastrado com status HTTP 201 (Created).</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.MedicoController.Put(System.Guid,Health_Clinic.Domains.Medico)">
+            <summary>
+            Atualiza um médico existente.
+            </summary>
+            <param name="id">O ID do médico a ser atualizado.</param>
+            <param name="medico">Os novos dados do médico.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.MedicoController.Delete(System.Guid)">
+            <summary>
+            Exclui um médico pelo seu ID.
+            </summary>
+            <param name="id">O ID do médico a ser excluído.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.MedicoController.ListarMedicosPorEspecialidade(System.Guid)">
+            <summary>
+            Obtém a lista de médicos por especialidade.
+            </summary>
+            <param name="idEspecialidade">O ID da especialidade.</param>
+            <returns>Uma lista de médicos que possuem a especialidade especificada.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.PacienteController.Get">
+            <summary>
+            Obtém a lista de todos os pacientes.
+            </summary>
+            <returns>Uma lista de objetos Paciente.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.PacienteController.GetById(System.Guid)">
+            <summary>
+            Obtém um paciente pelo seu ID.
+            </summary>
+            <param name="id">O ID do paciente.</param>
+            <returns>O paciente encontrado ou NotFound se não existir.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.PacienteController.GetByNome(System.String)">
+            <summary>
+            Obtém pacientes pelo seu nome.
+            </summary>
+            <param name="nome">O nome do paciente.</param>
+            <returns>Uma lista de pacientes que correspondem ao nome especificado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.PacienteController.ListarPorGenero(System.Guid)">
+            <summary>
+            Obtém pacientes por gênero.
+            </summary>
+            <param name="idGenero">O ID do gênero.</param>
+            <returns>Uma lista de pacientes do gênero especificado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.PacienteController.Post(Health_Clinic.Domains.Paciente)">
+            <summary>
+            Cadastra um novo paciente.
+            </summary>
+            <param name="paciente">Os dados do paciente a ser cadastrado.</param>
+            <returns>O paciente cadastrado com status HTTP 201 (Created).</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.PacienteController.Put(System.Guid,Health_Clinic.Domains.Paciente)">
+            <summary>
+            Atualiza um paciente existente.
+            </summary>
+            <param name="id">O ID do paciente a ser atualizado.</param>
+            <param name="paciente">Os novos dados do paciente.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.PacienteController.Delete(System.Guid)">
+            <summary>
+            Exclui um paciente pelo seu ID.
+            </summary>
+            <param name="id">O ID do paciente a ser excluído.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ProntuarioController.Get">
+            <summary>
+            Obtém a lista de todos os prontuários.
+            </summary>
+            <returns>Uma lista de objetos Prontuario.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ProntuarioController.GetById(System.Guid)">
+            <summary>
+            Obtém um prontuário pelo seu ID.
+            </summary>
+            <param name="id">O ID do prontuário.</param>
+            <returns>O prontuário encontrado ou NotFound se não existir.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ProntuarioController.ListarPorPaciente(System.Guid)">
+            <summary>
+            Obtém prontuários de um paciente pelo ID do paciente.
+            </summary>
+            <param name="idPaciente">O ID do paciente.</param>
+            <returns>Uma lista de prontuários do paciente especificado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ProntuarioController.ListarPorMedico(System.Guid)">
+            <summary>
+            Obtém prontuários de um médico pelo ID do médico.
+            </summary>
+            <param name="idMedico">O ID do médico.</param>
+            <returns>Uma lista de prontuários do médico especificado.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ProntuarioController.Post(Health_Clinic.Domains.Prontuario)">
+            <summary>
+            Cadastra um novo prontuário.
+            </summary>
+            <param name="prontuario">Os dados do prontuário a ser cadastrado.</param>
+            <returns>O prontuário cadastrado com status HTTP 201 (Created).</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ProntuarioController.Put(System.Guid,Health_Clinic.Domains.Prontuario)">
+            <summary>
+            Atualiza um prontuário existente.
+            </summary>
+            <param name="id">O ID do prontuário a ser atualizado.</param>
+            <param name="prontuario">Os novos dados do prontuário.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.ProntuarioController.Delete(System.Guid)">
+            <summary>
+            Exclui um prontuário pelo seu ID.
+            </summary>
+            <param name="id">O ID do prontuário a ser excluído.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.TiposUsuarioController.Get">
+            <summary>
+            Obtém a lista de todos os tipos de usuário.
+            </summary>
+            <returns>Uma lista de objetos TiposUsuario.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.TiposUsuarioController.GetById(System.Guid)">
+            <summary>
+            Obtém um tipo de usuário pelo seu ID.
+            </summary>
+            <param name="id">O ID do tipo de usuário.</param>
+            <returns>O tipo de usuário encontrado ou NotFound se não existir.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.TiposUsuarioController.Post(Health_Clinic.Domains.TiposUsuario)">
+            <summary>
+            Cadastra um novo tipo de usuário.
+            </summary>
+            <param name="tiposUsuario">Os dados do tipo de usuário a ser cadastrado.</param>
+            <returns>O tipo de usuário cadastrado com status HTTP 201 (Created).</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.TiposUsuarioController.Put(System.Guid,Health_Clinic.Domains.TiposUsuario)">
+            <summary>
+            Atualiza um tipo de usuário existente.
+            </summary>
+            <param name="id">O ID do tipo de usuário a ser atualizado.</param>
+            <param name="tiposUsuario">Os novos dados do tipo de usuário.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.TiposUsuarioController.Delete(System.Guid)">
+            <summary>
+            Exclui um tipo de usuário pelo seu ID.
+            </summary>
+            <param name="id">O ID do tipo de usuário a ser excluído.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.UsuarioController.Get">
+            <summary>
+            Obtém a lista de todos os usuários.
+            </summary>
+            <returns>Uma lista de objetos Usuario.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.UsuarioController.GetById(System.Guid)">
+            <summary>
+            Obtém um usuário pelo seu ID.
+            </summary>
+            <param name="id">O ID do usuário.</param>
+            <returns>O usuário encontrado ou NotFound se não existir.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.UsuarioController.Post(Health_Clinic.Domains.Usuario)">
+            <summary>
+            Cadastra um novo usuário.
+            </summary>
+            <param name="usuario">Os dados do usuário a ser cadastrado.</param>
+            <returns>O usuário cadastrado com status HTTP 201 (Created).</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.UsuarioController.Put(System.Guid,Health_Clinic.Domains.Usuario)">
+            <summary>
+            Atualiza um usuário existente pelo seu ID.
+            </summary>
+            <param name="id">O ID do usuário a ser atualizado.</param>
+            <param name="usuarioAtualizado">Os novos dados do usuário.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
+        </member>
+        <member name="M:Health_Clinic_API_Lucas.Controllers.UsuarioController.Delete(System.Guid)">
+            <summary>
+            Exclui um usuário pelo seu ID.
+            </summary>
+            <param name="id">O ID do usuário a ser excluído.</param>
+            <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
+        </member>
         <member name="T:Health_Clinic_API_Lucas.Migrations.Health_Clinic_API_Lucas">
             <inheritdoc />
         </member>

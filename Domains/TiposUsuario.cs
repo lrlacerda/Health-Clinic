@@ -15,7 +15,6 @@ namespace Health_Clinic.Domains
         public string? Nome { get; set; }
 
         [Column(TypeName = "VARCHAR(100)")]
-        [JsonIgnore]
         public string? Descricao { get; set; }
     }
 }

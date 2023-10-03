@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _pacienteRepository = new PacienteRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todos os pacientes.
+        /// </summary>
+        /// <returns>Uma lista de objetos Paciente.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um paciente pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do paciente.</param>
+        /// <returns>O paciente encontrado ou NotFound se não existir.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém pacientes pelo seu nome.
+        /// </summary>
+        /// <param name="nome">O nome do paciente.</param>
+        /// <returns>Uma lista de pacientes que correspondem ao nome especificado.</returns>
         [HttpGet("PorNome/{nome}")]
         public IActionResult GetByNome(string nome)
         {
@@ -65,6 +79,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém pacientes por gênero.
+        /// </summary>
+        /// <param name="idGenero">O ID do gênero.</param>
+        /// <returns>Uma lista de pacientes do gênero especificado.</returns>
         [HttpGet("PorGenero/{idGenero}")]
         public IActionResult ListarPorGenero(Guid idGenero)
         {
@@ -79,6 +98,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo paciente.
+        /// </summary>
+        /// <param name="paciente">Os dados do paciente a ser cadastrado.</param>
+        /// <returns>O paciente cadastrado com status HTTP 201 (Created).</returns>
         [HttpPost]
         public IActionResult Post(Paciente paciente)
         {
@@ -93,6 +117,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza um paciente existente.
+        /// </summary>
+        /// <param name="id">O ID do paciente a ser atualizado.</param>
+        /// <param name="paciente">Os novos dados do paciente.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Paciente paciente)
         {
@@ -108,6 +138,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Exclui um paciente pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do paciente a ser excluído.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

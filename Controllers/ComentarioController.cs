@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _comentarioRepository = new ComentarioRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todos os comentários.
+        /// </summary>
+        /// <returns>Uma lista de objetos Comentario.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um comentário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do comentário a ser obtido.</param>
+        /// <returns>O comentário encontrado.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo comentário.
+        /// </summary>
+        /// <param name="comentario">O objeto Comentario a ser cadastrado.</param>
+        /// <returns>O comentário cadastrado.</returns>
         [HttpPost]
         public IActionResult Post(Comentario comentario)
         {
@@ -80,6 +94,11 @@ namespace Health_Clinic_API_Lucas.Controllers
         //    }
         //}
 
+        /// <summary>
+        /// Deleta um comentário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do comentário a ser deletado.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -94,6 +113,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém a lista de comentários associados a um médico.
+        /// </summary>
+        /// <param name="idMedico">O ID do médico.</param>
+        /// <returns>Uma lista de comentários relacionados ao médico.</returns>
         [HttpGet("PorMedico/{idMedico}")]
         public IActionResult ListarComentariosPorMedico(Guid idMedico)
         {
@@ -108,6 +132,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém a lista de comentários associados a um paciente.
+        /// </summary>
+        /// <param name="idPaciente">O ID do paciente.</param>
+        /// <returns>Uma lista de comentários relacionados ao paciente.</returns>
         [HttpGet("PorPaciente/{idPaciente}")]
         public IActionResult ListarComentariosPorPaciente(Guid idPaciente)
         {
@@ -122,6 +151,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Filtra comentários por avaliação.
+        /// </summary>
+        /// <param name="avaliacao">A avaliação a ser usada como critério de filtro.</param>
+        /// <returns>Uma lista de comentários que correspondem à avaliação fornecida.</returns>
         [HttpGet("FiltrarPorAvaliacao/{avaliacao}")]
         public IActionResult FiltrarPorAvaliacao(int avaliacao)
         {

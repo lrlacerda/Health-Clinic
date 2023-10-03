@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todos os usuários.
+        /// </summary>
+        /// <returns>Uma lista de objetos Usuario.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um usuário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do usuário.</param>
+        /// <returns>O usuário encontrado ou NotFound se não existir.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo usuário.
+        /// </summary>
+        /// <param name="usuario">Os dados do usuário a ser cadastrado.</param>
+        /// <returns>O usuário cadastrado com status HTTP 201 (Created).</returns>
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -65,6 +79,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza um usuário existente pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do usuário a ser atualizado.</param>
+        /// <param name="usuarioAtualizado">Os novos dados do usuário.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, [FromBody] Usuario usuarioAtualizado)
         {
@@ -90,6 +110,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Exclui um usuário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do usuário a ser excluído.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

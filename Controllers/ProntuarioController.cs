@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _prontuarioRepository = new ProntuarioRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todos os prontuários.
+        /// </summary>
+        /// <returns>Uma lista de objetos Prontuario.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um prontuário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do prontuário.</param>
+        /// <returns>O prontuário encontrado ou NotFound se não existir.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém prontuários de um paciente pelo ID do paciente.
+        /// </summary>
+        /// <param name="idPaciente">O ID do paciente.</param>
+        /// <returns>Uma lista de prontuários do paciente especificado.</returns>
         [HttpGet("PorPaciente/{idPaciente}")]
         public IActionResult ListarPorPaciente(Guid idPaciente)
         {
@@ -65,6 +79,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém prontuários de um médico pelo ID do médico.
+        /// </summary>
+        /// <param name="idMedico">O ID do médico.</param>
+        /// <returns>Uma lista de prontuários do médico especificado.</returns>
         [HttpGet("PorMedico/{idMedico}")]
         public IActionResult ListarPorMedico(Guid idMedico)
         {
@@ -79,6 +98,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo prontuário.
+        /// </summary>
+        /// <param name="prontuario">Os dados do prontuário a ser cadastrado.</param>
+        /// <returns>O prontuário cadastrado com status HTTP 201 (Created).</returns>
         [HttpPost]
         public IActionResult Post(Prontuario prontuario)
         {
@@ -93,6 +117,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza um prontuário existente.
+        /// </summary>
+        /// <param name="id">O ID do prontuário a ser atualizado.</param>
+        /// <param name="prontuario">Os novos dados do prontuário.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Prontuario prontuario)
         {
@@ -108,6 +138,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Exclui um prontuário pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do prontuário a ser excluído.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

@@ -23,7 +23,6 @@ namespace Health_Clinic.Domains
 
         [Column(TypeName = "VARCHAR(100)")] 
         [Required(ErrorMessage = "Senha Obrigatória")]
-        [JsonIgnore]
         public string? Senha { get; set; }
 
 

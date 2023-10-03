@@ -17,6 +17,11 @@ namespace Health_Clinic_API_Lucas.Controllers
         {
             _agendamentoRepository = new AgendamentoRepository();
         }
+
+        /// <summary>
+        /// Obtém a lista de todos os agendamentos.
+        /// </summary>
+        /// <returns>Uma lista de objetos Agendamento.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -31,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém a lista de agendamentos de um paciente específico.
+        /// </summary>
+        /// <param name="idPaciente">O ID do paciente.</param>
+        /// <returns>Uma lista de objetos Agendamento do paciente.</returns>
         [HttpGet("PorPaciente/{idPaciente}")]
         public IActionResult ListarAgendamentosPorPaciente(Guid idPaciente)
         {
@@ -45,6 +55,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo agendamento.
+        /// </summary>
+        /// <param name="agendamento">O objeto Agendamento a ser cadastrado.</param>
+        /// <returns>O agendamento cadastrado.</returns>
         [HttpPost]
         public IActionResult Post(Agendamento agendamento)
         {
@@ -59,6 +74,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta um agendamento pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do agendamento a ser deletado.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

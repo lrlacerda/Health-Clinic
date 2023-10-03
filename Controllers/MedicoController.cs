@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _medicoRepository = new MedicoRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todos os médicos.
+        /// </summary>
+        /// <returns>Uma lista de objetos Médico.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um médico pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do médico.</param>
+        /// <returns>O médico encontrado ou NotFound se não existir.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém um médico pelo seu CRM.
+        /// </summary>
+        /// <param name="crm">O número do CRM do médico.</param>
+        /// <returns>O médico encontrado ou NotFound se não existir.</returns>
         [HttpGet("PorCRM/{crm}")]
         public IActionResult GetByCRM(int crm)
         {
@@ -70,6 +84,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra um novo médico.
+        /// </summary>
+        /// <param name="medico">Os dados do médico a ser cadastrado.</param>
+        /// <returns>O médico cadastrado com status HTTP 201 (Created).</returns>
         [HttpPost]
         public IActionResult Post(Medico medico)
         {
@@ -84,6 +103,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza um médico existente.
+        /// </summary>
+        /// <param name="id">O ID do médico a ser atualizado.</param>
+        /// <param name="medico">Os novos dados do médico.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Medico medico)
         {
@@ -99,6 +124,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Exclui um médico pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID do médico a ser excluído.</param>
+        /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -113,6 +143,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém a lista de médicos por especialidade.
+        /// </summary>
+        /// <param name="idEspecialidade">O ID da especialidade.</param>
+        /// <returns>Uma lista de médicos que possuem a especialidade especificada.</returns>
         [HttpGet("PorEspecialidade/{idEspecialidade}")]
         public IActionResult ListarMedicosPorEspecialidade(Guid idEspecialidade)
         {

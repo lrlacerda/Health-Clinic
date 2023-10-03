@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _especialidadeRepository = new EspecialidadeRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todas as especialidades médicas.
+        /// </summary>
+        /// <returns>Uma lista de objetos Especialidade.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém uma especialidade médica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da especialidade médica a ser obtida.</param>
+        /// <returns>A especialidade médica encontrada.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra uma nova especialidade médica.
+        /// </summary>
+        /// <param name="especialidade">O objeto Especialidade a ser cadastrado.</param>
+        /// <returns>A especialidade médica cadastrada.</returns>
         [HttpPost]
         public IActionResult Post(Especialidade especialidade)
         {
@@ -65,6 +79,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza uma especialidade médica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da especialidade médica a ser atualizada.</param>
+        /// <param name="especialidade">O objeto Especialidade atualizado.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Especialidade especialidade)
         {
@@ -80,6 +100,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta uma especialidade médica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da especialidade médica a ser deletada.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

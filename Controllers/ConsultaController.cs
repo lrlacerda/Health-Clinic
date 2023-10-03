@@ -18,6 +18,10 @@ namespace Health_Clinic_API_Lucas.Controllers
             _consultaRepository = new ConsultaRepository();
         }
 
+        /// <summary>
+        /// Obtém a lista de todas as consultas médicas.
+        /// </summary>
+        /// <returns>Uma lista de objetos Consulta.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém uma consulta médica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da consulta médica a ser obtida.</param>
+        /// <returns>A consulta médica encontrada.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -51,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra uma nova consulta médica.
+        /// </summary>
+        /// <param name="consulta">O objeto Consulta a ser cadastrado.</param>
+        /// <returns>A consulta médica cadastrada.</returns>
         [HttpPost]
         public IActionResult Post(Consulta consulta)
         {
@@ -66,6 +80,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza uma consulta médica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da consulta médica a ser atualizada.</param>
+        /// <param name="consulta">O objeto Consulta atualizado.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Consulta consulta)
         {
@@ -81,6 +101,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta uma consulta médica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da consulta médica a ser deletada.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -95,6 +120,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém a lista de consultas médicas associadas a um médico.
+        /// </summary>
+        /// <param name="idMedico">O ID do médico.</param>
+        /// <returns>Uma lista de consultas médicas relacionadas ao médico.</returns>
         [HttpGet("PorMedico/{idMedico}")]
         public IActionResult ListarConsultasPorMedico(Guid idMedico)
         {
@@ -109,6 +139,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém a lista de consultas médicas associadas a um paciente.
+        /// </summary>
+        /// <param name="idPaciente">O ID do paciente.</param>
+        /// <returns>Uma lista de consultas médicas relacionadas ao paciente.</returns>
         [HttpGet("PorPaciente/{idPaciente}")]
         public IActionResult ListarConsultasPorPaciente(Guid idPaciente)
         {

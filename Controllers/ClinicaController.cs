@@ -17,6 +17,11 @@ namespace Health_Clinic_API_Lucas.Controllers
         {
             _clinicaRepository = new ClinicaRepository();
         }
+
+        /// <summary>
+        /// Obtém a lista de todas as clínicas.
+        /// </summary>
+        /// <returns>Uma lista de objetos Clinica.</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -31,6 +36,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Obtém uma clínica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da clínica a ser obtida.</param>
+        /// <returns>A clínica encontrada.</returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -50,6 +60,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra uma nova clínica.
+        /// </summary>
+        /// <param name="clinica">O objeto Clinica a ser cadastrado.</param>
+        /// <returns>A clínica cadastrada.</returns>
         [HttpPost]
         public IActionResult Post(Clinica clinica)
         {
@@ -64,6 +79,12 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza uma clínica existente.
+        /// </summary>
+        /// <param name="id">O ID da clínica a ser atualizada.</param>
+        /// <param name="clinica">O objeto Clinica com as informações atualizadas.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Clinica clinica)
         {
@@ -79,6 +100,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta uma clínica pelo seu ID.
+        /// </summary>
+        /// <param name="id">O ID da clínica a ser deletada.</param>
+        /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -93,6 +119,11 @@ namespace Health_Clinic_API_Lucas.Controllers
             }
         }
 
+        /// <summary>
+        /// Filtra clínicas pelo CNPJ.
+        /// </summary>
+        /// <param name="cnpj">O CNPJ a ser usado como critério de filtro.</param>
+        /// <returns>Uma lista de clínicas que correspondem ao CNPJ fornecido.</returns>
         [HttpGet("FiltrarPorCNPJ")]
         public IActionResult FiltrarPorCNPJ(string cnpj)
         {
