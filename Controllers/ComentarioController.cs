@@ -1,8 +1,10 @@
 ﻿using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
 using Health_Clinic_API_Lucas.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Health_Clinic_API_Lucas.Controllers
 {
@@ -23,6 +25,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// </summary>
         /// <returns>Uma lista de objetos Comentario.</returns>
         [HttpGet]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult Get()
         {
             try
@@ -42,6 +45,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID do comentário a ser obtido.</param>
         /// <returns>O comentário encontrado.</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult GetById(Guid id)
         {
             try
@@ -66,6 +70,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="comentario">O objeto Comentario a ser cadastrado.</param>
         /// <returns>O comentário cadastrado.</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador, Paciente")]
         public IActionResult Post(Comentario comentario)
         {
             try
@@ -100,6 +105,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID do comentário a ser deletado.</param>
         /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try
@@ -119,6 +125,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="idMedico">O ID do médico.</param>
         /// <returns>Uma lista de comentários relacionados ao médico.</returns>
         [HttpGet("PorMedico/{idMedico}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult ListarComentariosPorMedico(Guid idMedico)
         {
             try
@@ -138,6 +145,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="idPaciente">O ID do paciente.</param>
         /// <returns>Uma lista de comentários relacionados ao paciente.</returns>
         [HttpGet("PorPaciente/{idPaciente}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult ListarComentariosPorPaciente(Guid idPaciente)
         {
             try
@@ -157,6 +165,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="avaliacao">A avaliação a ser usada como critério de filtro.</param>
         /// <returns>Uma lista de comentários que correspondem à avaliação fornecida.</returns>
         [HttpGet("FiltrarPorAvaliacao/{avaliacao}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult FiltrarPorAvaliacao(int avaliacao)
         {
             try

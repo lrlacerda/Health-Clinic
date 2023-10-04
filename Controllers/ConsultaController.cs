@@ -1,8 +1,10 @@
 ﻿using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
 using Health_Clinic_API_Lucas.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Health_Clinic_API_Lucas.Controllers
 {
@@ -23,6 +25,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// </summary>
         /// <returns>Uma lista de objetos Consulta.</returns>
         [HttpGet]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult Get()
         {
             try
@@ -42,6 +45,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID da consulta médica a ser obtida.</param>
         /// <returns>A consulta médica encontrada.</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult GetById(Guid id)
         {
             try
@@ -66,6 +70,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="consulta">O objeto Consulta a ser cadastrado.</param>
         /// <returns>A consulta médica cadastrada.</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult Post(Consulta consulta)
         {
             try
@@ -87,6 +92,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="consulta">O objeto Consulta atualizado.</param>
         /// <returns>Nenhum conteúdo.</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult Put(Guid id, Consulta consulta)
         {
             try
@@ -107,6 +113,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID da consulta médica a ser deletada.</param>
         /// <returns>Nenhum conteúdo.</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try
@@ -126,6 +133,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="idMedico">O ID do médico.</param>
         /// <returns>Uma lista de consultas médicas relacionadas ao médico.</returns>
         [HttpGet("PorMedico/{idMedico}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult ListarConsultasPorMedico(Guid idMedico)
         {
             try
@@ -145,6 +153,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="idPaciente">O ID do paciente.</param>
         /// <returns>Uma lista de consultas médicas relacionadas ao paciente.</returns>
         [HttpGet("PorPaciente/{idPaciente}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult ListarConsultasPorPaciente(Guid idPaciente)
         {
             try

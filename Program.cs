@@ -24,7 +24,7 @@ builder.Services.AddAuthentication(Options =>
 
         ValidateLifetime = true,
 
-        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("-healthclinic-autenticacao-webapi-dev")),
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("healthclinic-autenticacao-webapi-dev")),
 
         ClockSkew = TimeSpan.FromMinutes(30),
 
@@ -96,6 +96,8 @@ app.UseSwaggerUI(options =>
 });
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -1,14 +1,17 @@
 ﻿using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
 using Health_Clinic_API_Lucas.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Health_Clinic_API_Lucas.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
+
     public class ProntuarioController : ControllerBase
     {
         private IProntuarioRepository _prontuarioRepository;
@@ -23,6 +26,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// </summary>
         /// <returns>Uma lista de objetos Prontuario.</returns>
         [HttpGet]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult Get()
         {
             try
@@ -42,6 +46,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID do prontuário.</param>
         /// <returns>O prontuário encontrado ou NotFound se não existir.</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult GetById(Guid id)
         {
             try
@@ -66,6 +71,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="idPaciente">O ID do paciente.</param>
         /// <returns>Uma lista de prontuários do paciente especificado.</returns>
         [HttpGet("PorPaciente/{idPaciente}")]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult ListarPorPaciente(Guid idPaciente)
         {
             try
@@ -85,6 +91,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="idMedico">O ID do médico.</param>
         /// <returns>Uma lista de prontuários do médico especificado.</returns>
         [HttpGet("PorMedico/{idMedico}")]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult ListarPorMedico(Guid idMedico)
         {
             try
@@ -104,6 +111,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="prontuario">Os dados do prontuário a ser cadastrado.</param>
         /// <returns>O prontuário cadastrado com status HTTP 201 (Created).</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult Post(Prontuario prontuario)
         {
             try
@@ -124,6 +132,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="prontuario">Os novos dados do prontuário.</param>
         /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult Put(Guid id, Prontuario prontuario)
         {
             try
@@ -144,6 +153,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID do prontuário a ser excluído.</param>
         /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try

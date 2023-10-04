@@ -1,6 +1,7 @@
 ﻿using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
 using Health_Clinic_API_Lucas.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace Health_Clinic_API_Lucas.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Authorize(Roles = "Administrador")]
     public class AgendamentoController : ControllerBase
     {
         private IAgendamentoRepository _agendamentoRepository;

@@ -1,8 +1,10 @@
 ﻿using Health_Clinic.Domains;
 using Health_Clinic_API_Lucas.Interfaces;
 using Health_Clinic_API_Lucas.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Health_Clinic_API_Lucas.Controllers
 {
@@ -23,6 +25,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// </summary>
         /// <returns>Uma lista de objetos Médico.</returns>
         [HttpGet]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult Get()
         {
             try
@@ -42,6 +45,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID do médico.</param>
         /// <returns>O médico encontrado ou NotFound se não existir.</returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult GetById(Guid id)
         {
             try
@@ -66,6 +70,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="crm">O número do CRM do médico.</param>
         /// <returns>O médico encontrado ou NotFound se não existir.</returns>
         [HttpGet("PorCRM/{crm}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult GetByCRM(int crm)
         {
             try
@@ -90,6 +95,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="medico">Os dados do médico a ser cadastrado.</param>
         /// <returns>O médico cadastrado com status HTTP 201 (Created).</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult Post(Medico medico)
         {
             try
@@ -110,6 +116,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="medico">Os novos dados do médico.</param>
         /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a atualização for bem-sucedida.</returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador, Medico")]
         public IActionResult Put(Guid id, Medico medico)
         {
             try
@@ -130,6 +137,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="id">O ID do médico a ser excluído.</param>
         /// <returns>Nenhum conteúdo com status HTTP 204 (NoContent) se a exclusão for bem-sucedida.</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try
@@ -149,6 +157,7 @@ namespace Health_Clinic_API_Lucas.Controllers
         /// <param name="idEspecialidade">O ID da especialidade.</param>
         /// <returns>Uma lista de médicos que possuem a especialidade especificada.</returns>
         [HttpGet("PorEspecialidade/{idEspecialidade}")]
+        [Authorize(Roles = "Administrador, Medico, Paciente")]
         public IActionResult ListarMedicosPorEspecialidade(Guid idEspecialidade)
         {
             try

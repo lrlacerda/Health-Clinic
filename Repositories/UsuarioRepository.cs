@@ -34,7 +34,7 @@ namespace Health_Clinic_API_Lucas.Repositories
                          TiposUsuario = new TiposUsuario
                          {
                              IdTiposUsuario = u.IdTiposUsuario,
-                             Nome = u.Nome
+                             Nome = u.TiposUsuario!.Nome
                          }
                      }).FirstOrDefault(usuario => usuario.Email == email)!;
 

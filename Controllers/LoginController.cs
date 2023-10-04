@@ -45,13 +45,13 @@ namespace Health_Clinic_API_Lucas.Controllers
 
                 var claims = new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario !.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario!.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
                     new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome!),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.TiposUsuario!.Nome!),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.TiposUsuario.Nome!),
                 };
 
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("health-clinic-chave-autenticacao-webapi-dev"));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("healthclinic-autenticacao-webapi-dev"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
